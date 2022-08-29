@@ -1,6 +1,8 @@
 # professional-README-generator-node-command-line
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+![Last Commit to Current Repo](https://img.shields.io/github/last-commit/TheInfamousGrim/professional-README-generator-node-command-line)
+![Commits a month](https://img.shields.io/github/commit-activity/m/TheInfamousGrim/professional-README-generator-node-command-line)
 
 A README.md generator that is used via the command line to help rapidly construct quality README files
 
@@ -14,7 +16,7 @@ A README.md generator that is used via the command line to help rapidly construc
 6. [Badges](#badges)
 7. [Credits](#credits)
 8. [License](#license)
-9. [Feedback](#feedback)
+9. [Feedback and Contribution](#feedback-and-contribution)
 
 ## Description
 
@@ -65,8 +67,9 @@ After installing the dependencies to the relevant
 
 The technology used for the development of this app was:
 
-- [![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://www.javascript.com/)
-- [![Node.js](https://img.shields.io/badge/node.js-43853d?style=for-the-badge&logo=node.js&logocolor=white)](https://nodejs.org/en/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://www.javascript.com/)
+
+[![Node.js](https://img.shields.io/badge/node.js-43853d?style=for-the-badge&logo=node.js&logocolor=white)](https://nodejs.org/en/)
 
 ## Features
 
@@ -81,13 +84,17 @@ The technology used for the development of this app was:
 
 ## License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![License: MIT](https://img.shields.io/github/license/TheInfamousGrim/professional-README-generator-node-command-line?color=yellow)
 
 [MIT License](/LICENSE.md)
 
-## Feedback
+## Feedback and Contribution
 
 ![Ask Me Anything](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:finchergeorge1@gmail.com)
 
+<img src="https://avatars.githubusercontent.com/u/89855075?v=4" alt="TheInfamousGrim">
+
 Any feedback please email [George Fincher](mailto:finchergeorge1@gmail.com)
+
+GitHub: [TheInfamousGrim](https://api.github.com/users/TheInfamousGrim)
