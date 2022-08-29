@@ -1,8 +1,8 @@
-function generateMarkdown(userResponses, gitHubAvatar) {
+function generateMarkdown(userResponses, gitHubAvatar, gitHubUserUrl) {
     const draftMarkdown = `
 # ${userResponses.title}
 
-![Last Commit to Current Repo](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo})
+![Last Commit to Current Repo](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}) ![${userResponses.license}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
 
 ${userResponses.about}
 
@@ -13,9 +13,11 @@ ${userResponses.about}
 3. [Usage](#usage)
 4. [Technology](#technology)
 5. [Features](#features)
-6. [Credits](#credits)
-7. [License](#license)
-8. [Feedback](#feedback-and-contribution)
+6. [Contribution](#contribution)
+7. [Tests](#tests)
+8. [Credits](#credits)
+9. [License](#license)
+9. [Questions](#questions)
 
 ## Description
 
@@ -51,6 +53,14 @@ ${userResponses.technology}
 
 ${userResponses.features}
 
+## Contribution
+
+${userResponses.contribution}
+
+## Tests
+
+${userResponses.tests}
+
 ## Credits
 
 🙏 Made with the help of:
@@ -63,13 +73,15 @@ ${userResponses.credits}
 
 [${userResponses.license}](/LICENSE.md)
 
-## Feedback and Contribution
+## questions
 
 ![Ask Me Anything](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)
 
 <img src="${gitHubAvatar}" alt="${userResponses.username}">
 
-Any feedback please feel free to get in contact
+GitHub: [${userResponses.username}](${gitHubUserUrl})
+
+Any feedback please email: [${userResponses.fullName}](mailto:${userResponses.email})
 `;
 
     return draftMarkdown;

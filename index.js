@@ -29,6 +29,16 @@ const readmeQuestions = [
     },
     {
         type: 'input',
+        message: 'What is your email address?',
+        name: 'email',
+        default: 'finchergeorge1@gmail.com',
+        validate(email) {
+            const emailRegEx = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
+            return emailRegEx.test(email) ? true : 'A valid email address is required';
+        },
+    },
+    {
+        type: 'input',
         message: 'What is your GitHub username? (example: TheInfamousGrim)',
         name: 'username',
         default: 'TheInfamousGrim',
@@ -61,7 +71,7 @@ const readmeQuestions = [
         type: 'input',
         message: 'Write a short sentence explaining what your project does. (Must be 6 characters or longer)',
         name: 'about',
-        default: 'What your project is about',
+        default: 'What your project is about.',
         validate(about) {
             return about.length > 5 ? true : 'Must be 6 characters or longer';
         },
@@ -70,7 +80,7 @@ const readmeQuestions = [
         type: 'editor',
         message: 'Write a detailed description explaining what your project does. (Must be 6 characters or longer)',
         name: 'description',
-        default: 'A description of your project',
+        default: 'A description of your project.',
         validate(description) {
             return description.length > 5 ? true : 'Must be 6 characters or longer';
         },
@@ -79,37 +89,49 @@ const readmeQuestions = [
         type: 'input',
         message: 'Write a user story section to further explain the need for your application.',
         name: 'userStory',
-        default: 'A user story',
+        default: 'A user story.',
     },
     {
         type: 'input',
         message: 'Write the main lessons you learned whilst making this project.',
         name: 'lessons',
-        default: 'I learned many things',
+        default: 'I learned many things.',
     },
     {
         type: 'editor',
         message: 'Write installation steps that are required for your project',
         name: 'installation',
-        default: 'Some lovely installation steps',
+        default: 'Some lovely installation steps.',
     },
     {
         type: 'editor',
         message: 'Write the instructions on how to use your application',
         name: 'usage',
-        default: 'Some lovely instructions on how to use your application',
+        default: 'Some lovely instructions on how to use your application.',
     },
     {
         type: 'input',
         message: 'Write the list of technologies that were used in the construction of your application',
         name: 'technology',
-        default: 'Some lovely tech that was used',
+        default: 'Some lovely tech that was used.',
     },
     {
         type: 'input',
         message: 'Write a list of features that are present in your application',
         name: 'features',
-        default: 'Some lovely features',
+        default: 'Some lovely features.',
+    },
+    {
+        type: 'editor',
+        message: 'Write a contribution guide for others seeking to edit the project',
+        name: 'contribution',
+        default: 'Some contribution guidelines.',
+    },
+    {
+        type: 'editor',
+        message: 'Write down the tests available to test out your application',
+        name: 'tests',
+        default: 'Some tests here.',
     },
     {
         type: 'input',
@@ -182,13 +204,12 @@ async function executeGenerator() {
         console.log('Many thanks for the prompt responses! Fetching your github data');
 
         // Get the user avatar picture
-        const gitHubAvatar = await getGitHubUserInfo(userResponses.username);
-        console.log('Your GitHub data: ', gitHubAvatar);
+        const gitHubUserData = await getGitHubUserInfo(userResponses.username);
+        console.log('Your GitHub data: ', gitHubUserData);
 
         // Pass the user prompt data and avatar link to the generateMarkdown func
         console.log('Generating your README text...');
-        const readmeMarkdown = generateMarkdown(userResponses, gitHubAvatar.avatar);
-        console.log(readmeMarkdown);
+        const readmeMarkdown = generateMarkdown(userResponses, gitHubUserData.avatar, gitHubUserData.url);
 
         // create the readme file
         await writeFileAysnc('ExampleREADME.md', readmeMarkdown);
