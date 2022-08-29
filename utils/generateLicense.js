@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const getLicense = async () => {
-    const gitHubLicenseApi = `https://api.github.com/licenses/MIT`;
+const getLicense = async (userResponses) => {
+    const gitHubLicenseApi = `https://api.github.com/licenses/${userResponses.license}`;
     try {
         const resp = await axios.get(gitHubLicenseApi);
         const licenseData = {
@@ -9,9 +9,9 @@ const getLicense = async () => {
             body: resp.data.body,
         };
         return licenseData;
-    } catch (err) {
+    } catch (error) {
         // Handle Error Here
-        console.error(err);
+        console.error(error.response.data.error);
     }
 };
 

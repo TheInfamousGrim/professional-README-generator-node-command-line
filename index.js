@@ -25,7 +25,7 @@ const readmeQuestions = [
         type: 'input',
         message: 'What is your full name (example: George Fincher)',
         name: 'fullName',
-        default: 'Ali-G',
+        default: 'George Fincher',
     },
     {
         type: 'input',
@@ -160,9 +160,41 @@ const readmeQuestions = [
     },
 ];
 
-inquirer.prompt(readmeQuestions);
+/* ---------------------- write users prompts to a file --------------------- */
 
-// get currentYear for the license file
-// const todaysDate = new Date();
-// const currentYear = todaysDate.getFullYear();
-// console.log(currentYear);
+function writeToFile(fileName, markdownData) {
+    fs.writeFile(fileName, markdownData, (err) => {
+        if (err) return console.log(err);
+        console.log("Nice one! You've generated a lovely README.md file!");
+    });
+}
+
+const writeFileAysnc = util.promisify(writeToFile);
+
+/* -------------------------------------------------------------------------- */
+/*                          Main executable function                          */
+/* -------------------------------------------------------------------------- */
+async function executeGenerator() {
+    try {
+        // Get user prompts to fill in data
+        const userResponses = await inquirer.prompt(readmeQuestions);
+        console.log('Your responses: ', userResponses);
+        console.log('Many thanks for the prompt responses! Fetching your github data');
+
+        // Get the user avatar picture
+        const gitHubAvatar = await getGitHubUserInfo(userResponses.username);
+        console.log('Your GitHub data: ', gitHubAvatar);
+
+        // Pass the user prompt data and avatar link to the generateMarkdown func
+        console.log('Generating your README text...');
+        const readmeMarkdown = generateMarkdown(userResponses, gitHubAvatar.avatar);
+        console.log(readmeMarkdown);
+
+        // create the readme file
+        await writeFileAysnc('ExampleREADME.md', readmeMarkdown);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+executeGenerator();

@@ -4,13 +4,13 @@ const getGitHubUserInfo = async (gitHubUserName) => {
     const gitHubApiUrl = `https://api.github.com/users/${gitHubUserName}`;
     try {
         const resp = await axios.get(gitHubApiUrl);
-        const userInfo = {
+        const gitHubInfo = {
             avatar: resp.data.avatar_url,
         };
-        return userInfo;
-    } catch (err) {
+        return gitHubInfo;
+    } catch (error) {
         // Handle Error Here
-        console.error(err);
+        console.log(error.response.data.error);
     }
 };
 
