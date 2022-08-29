@@ -1,8 +1,8 @@
-function generateMarkdown(userResponses, gitHubUserName, gitHubRepo, gitHubAvatar) {
+function generateMarkdown(userResponses, gitHubAvatar) {
     const draftMarkdown = `
     # ${userResponses.title}
     
-    ![Last Commit to Current Repo](https://img.shields.io/github/last-commit/${gitHubUserName}/${gitHubRepo})
+    ![Last Commit to Current Repo](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo})
     
     ${userResponses.about}
     
@@ -27,15 +27,11 @@ function generateMarkdown(userResponses, gitHubUserName, gitHubRepo, gitHubAvata
     
     ### What did I Learn 🏫
     
-    ${userResponses.mainLessons}
-    
-    Other things I learned:
-    
-    ${userResponses.otherLessons}
+    ${userResponses.lessons}
     
     ## Installation
     
-    The steps to install the application are as follows
+    The steps to install the application are as follows:
     
     ${userResponses.installation}
     
@@ -45,7 +41,7 @@ function generateMarkdown(userResponses, gitHubUserName, gitHubRepo, gitHubAvata
     
     ## Technology
     
-    Consider using badges from either [shields.io](https://shields.io/) or [Awesome Badges](https://dev.to/envoy_/150-badges-for-github-pnk#skills) to show of your tech used in a fun way 📛
+    Consider using badges from either [shields.io](https://shields.io/) or [Awesome Badges](https://dev.to/envoy_/150-badges-for-github-pnk#skills) to show of your tech used in a visual way 📛
     
     The technology used for the development of this app was:
     
@@ -63,7 +59,7 @@ function generateMarkdown(userResponses, gitHubUserName, gitHubRepo, gitHubAvata
     
     ## License
     
-    ![${userResponses.license}](https://img.shields.io/github/license/${gitHubUserName}/${gitHubRepo}?color=yellow)
+    ![${userResponses.license}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
     
     [${userResponses.license}](/LICENSE.md)
     
@@ -71,7 +67,7 @@ function generateMarkdown(userResponses, gitHubUserName, gitHubRepo, gitHubAvata
     
     ![Ask Me Anything](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)
     
-    <img src="${gitHubAvatar}" alt="${gitHubUserName}">
+    <img src="${gitHubAvatar}" alt="${userResponses.username}">
     
     Any feedback please feel free to get in contact
     `;

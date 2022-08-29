@@ -1,4 +1,4 @@
-// External packages
+// External modules
 import inquirer from 'inquirer';
 
 import fs from 'fs';
@@ -13,17 +13,140 @@ import { getLicense } from './utils/generateLicense.js';
 import { generateMarkdown } from './utils/generateMarkdown.js';
 
 // Inquirer prompts for the responses from the user
-inquirer
-    .prompt([
-        {
-            name: 'greeting',
-            message: 'What would you like to say?',
-            type: 'input',
+const readmeQuestions = [
+    {
+        type: 'input',
+        message: 'What is your GitHub username? (example: TheInfamousGrim)',
+        name: 'username',
+        default: 'TheInfamousGrim',
+        validate(username) {
+            const gitHubUsernameRegEx = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
+            return gitHubUsernameRegEx.test(username) ? true : 'A valid GitHub username is required';
         },
-    ])
-    .then((answer) => {
-        console.log(answer);
-    });
+    },
+    {
+        type: 'input',
+        message: 'What is the name of your GitHub repo? (so that the badges can work)',
+        name: 'repo',
+        default: 'professional-README-generator-node-command-line',
+        validate(repo) {
+            const gitHubRepoRegEx = /[\w-]+/i;
+            return gitHubRepoRegEx.test(repo) ? true : 'A valid GitHub repo name is required';
+        },
+    },
+    {
+        type: 'input',
+        message: 'What do you want the title of your README to be? (Must be 6 characters or longer)',
+        name: 'title',
+        default: 'Project title',
+        validate(title) {
+            return title.length > 5 ? true : 'Must be 6 characters or longer';
+        },
+    },
+    {
+        type: 'input',
+        message: 'Write a short sentence explaining what your project does. (Must be 6 characters or longer)',
+        name: 'about',
+        default: 'What your project is about',
+        validate(about) {
+            return about.length > 5 ? true : 'Must be 6 characters or longer';
+        },
+    },
+    {
+        type: 'editor',
+        message: 'Write a detailed description explaining what your project does. (Must be 6 characters or longer)',
+        name: 'description',
+        default: 'A description of your project',
+        validate(description) {
+            return description.length > 5 ? true : 'Must be 6 characters or longer';
+        },
+    },
+    {
+        type: 'input',
+        message: 'Write a user story section to further explain the need for your application.',
+        name: 'userStory',
+        default: 'A user story',
+    },
+    {
+        type: 'input',
+        message: 'Write the main lessons you learned whilst making this project.',
+        name: 'lessons',
+        default: 'I learned many things',
+    },
+    {
+        type: 'editor',
+        message: 'Write installation steps that are required for your project',
+        name: 'installation',
+        default: 'Some lovely installation steps',
+    },
+    {
+        type: 'editor',
+        message: 'Write the instructions on how to use your application',
+        name: 'usage',
+        default: 'Some lovely instructions on how to use your application',
+    },
+    {
+        type: 'input',
+        message: 'Write the list of technologies that were used in the construction of your application',
+        name: 'technology',
+        default: 'Some lovely tech that was used',
+    },
+    {
+        type: 'input',
+        message: 'Write a list of features that are present in your application',
+        name: 'features',
+        default: 'Some lovely features',
+    },
+    {
+        type: 'input',
+        message: 'Write the groups or persons that helped make the project happen!',
+        name: 'credits',
+        default: 'My fantastic contributors, I love them',
+    },
+    {
+        type: 'list',
+        message: 'Choose a license for your application. (navigate using up & down arrow keys or j & k)',
+        name: 'license',
+        choices: [
+            'afl-3.0',
+            'apache-2.0',
+            'artistic-2.0',
+            'bsl-1.0',
+            'bsd-2-clause',
+            'bsd-3-clause',
+            'bsd-3-clause-clear',
+            'cc',
+            'cc0-1.0',
+            'cc-by-4.0',
+            'cc-by-sa-4.0',
+            'wtfpl',
+            'ecl-2.0',
+            'epl-1.0',
+            'epl-2.0',
+            'eupl-1.1',
+            'agpl-3.0',
+            'gpl',
+            'gpl-2.0',
+            'gpl-3.0',
+            'lgpl',
+            'lgpl-2.1',
+            'lgpl-3.0',
+            'isc',
+            'lppl-1.3c',
+            'ms-pl',
+            'mit',
+            'mpl-2.0',
+            'osl-3.0',
+            'postgresql',
+            'ofl-1.1',
+            'ncsa',
+            'unlicense',
+            'zlib',
+        ],
+    },
+];
+
+inquirer.prompt(readmeQuestions);
 
 // get currentYear for the license file
 // const todaysDate = new Date();
