@@ -12,7 +12,7 @@ import util from 'util';
 /* -------------------------------------------------------------------------- */
 import { getGitHubUserInfo } from './utils/githubApi.js';
 
-import { getLicense } from './utils/generateLicense.js';
+import { getLicense } from './utils/getLicenseApi.js';
 
 import { generateMarkdown } from './utils/generateMarkdown.js';
 
@@ -187,7 +187,7 @@ const readmeQuestions = [
 function writeToFile(fileName, markdownData) {
     fs.writeFile(fileName, markdownData, (err) => {
         if (err) return console.log(err);
-        console.log("Nice one! You've generated a lovely README.md file!");
+        console.log(`Nice one! You've generated your lovely ${fileName} file!`);
     });
 }
 
@@ -207,9 +207,19 @@ async function executeGenerator() {
         const gitHubUserData = await getGitHubUserInfo(userResponses.username);
         console.log('Your GitHub data: ', gitHubUserData);
 
+        // Get the license data from the user prompt
+        const userLicenseData = await getLicense(userResponses.license);
+        console.log('Your license data: ', userLicenseData);
+
         // Pass the user prompt data and avatar link to the generateMarkdown func
         console.log('Generating your README text...');
-        const readmeMarkdown = generateMarkdown(userResponses, gitHubUserData.avatar, gitHubUserData.url);
+        const readmeMarkdown = generateMarkdown(
+            userResponses,
+            gitHubUserData.avatar,
+            gitHubUserData.url,
+            userLicenseData.spdx_id,
+            userLicenseData.name
+        );
 
         // create the readme file
         await writeFileAysnc('ExampleREADME.md', readmeMarkdown);

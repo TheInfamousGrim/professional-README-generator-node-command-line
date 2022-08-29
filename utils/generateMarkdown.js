@@ -1,8 +1,8 @@
-function generateMarkdown(userResponses, gitHubAvatar, gitHubUserUrl) {
+function generateMarkdown(userResponses, gitHubAvatar, gitHubUserUrl, licenseSpdxID, licenseName) {
     const draftMarkdown = `
 # ${userResponses.title}
 
-![Last Commit to Current Repo](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}) ![${userResponses.license}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
+![Last Commit to Current Repo](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}) ![License: ${licenseSpdxID}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
 
 ${userResponses.about}
 
@@ -69,9 +69,9 @@ ${userResponses.credits}
 
 ## License
 
-![${userResponses.license}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
+![License: ${licenseSpdxID}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
 
-[${userResponses.license}](/LICENSE.md)
+[${licenseName}](/LICENSE.md)
 
 ## questions
 
