@@ -1,25 +1,39 @@
-// External modules
+/* -------------------------------------------------------------------------- */
+/*                              External modules                              */
+/* -------------------------------------------------------------------------- */
 import inquirer from 'inquirer';
 
 import fs from 'fs';
 
 import util from 'util';
 
-// internal modules
+/* -------------------------------------------------------------------------- */
+/*                              internal modules                              */
+/* -------------------------------------------------------------------------- */
 import { getGitHubUserInfo } from './utils/githubApi.js';
 
 import { getLicense } from './utils/generateLicense.js';
 
 import { generateMarkdown } from './utils/generateMarkdown.js';
 
-// Inquirer prompts for the responses from the user
+/* -------------------------------------------------------------------------- */
+/*                          readme generator prompter                         */
+/* -------------------------------------------------------------------------- */
+// Readme generator prompt questions
 const readmeQuestions = [
+    {
+        type: 'input',
+        message: 'What is your full name (example: George Fincher)',
+        name: 'fullName',
+        default: 'Ali-G',
+    },
     {
         type: 'input',
         message: 'What is your GitHub username? (example: TheInfamousGrim)',
         name: 'username',
         default: 'TheInfamousGrim',
         validate(username) {
+            // checks if the username provided is a valid github username
             const gitHubUsernameRegEx = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
             return gitHubUsernameRegEx.test(username) ? true : 'A valid GitHub username is required';
         },
