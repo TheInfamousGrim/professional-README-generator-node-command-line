@@ -1,0 +1,27 @@
+{
+  "name": "professional-readme-generator-node-command-line",
+  "version": "1.0.0",
+  "description": "A command line tool that generates a readme for the user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheInfamousGrim/professional-README-generator-node-command-line.git"
+  },
+  "author": "George Fincher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheInfamousGrim/professional-README-generator-node-command-line/issues"
+  },
+  "homepage": "https://github.com/TheInfamousGrim/professional-README-generator-node-command-line#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "inquirer": "^9.1.0"
+  },
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "inquirer": "^9.1.0"
+  }
+}
