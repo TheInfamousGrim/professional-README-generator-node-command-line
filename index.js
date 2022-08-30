@@ -141,7 +141,7 @@ const readmeQuestions = [
     },
     {
         type: 'list',
-        message: 'Choose a license for your application. (navigate using up & down arrow keys or j & k)',
+        message: 'Choose a license for your application. (navigate using up & down arrow keys or k & j)',
         name: 'license',
         choices: [
             'afl-3.0',
@@ -196,6 +196,7 @@ const writeFileAysnc = util.promisify(writeToFile);
 /* -------------------------------------------------------------------------- */
 /*                          Main executable function                          */
 /* -------------------------------------------------------------------------- */
+
 async function executeGenerator() {
     try {
         // Get user prompts to fill in data
