@@ -141,7 +141,7 @@ const readmeQuestions = [
     },
     {
         type: 'list',
-        message: 'Choose a license for your application. (navigate using up & down arrow keys or k & j)',
+        message: 'Choose a license for your application. (navigate using up & down arrow keys or k & jgit )',
         name: 'license',
         choices: [
             'afl-3.0',

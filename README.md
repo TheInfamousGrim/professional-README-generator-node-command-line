@@ -13,11 +13,10 @@ A README.md generator that is used via the command line to help rapidly construc
 3. [Usage](#usage)
 4. [Technology](#technology)
 5. [Features](#features)
-6. [Badges](#badges)
-7. [Credits](#credits)
-8. [License](#license)
-9. [Contribution Guidelines](#contribution-guidelines)
-10. [Feedback](#feedbac)
+6. [Credits](#credits)
+7. [License](#license)
+8. [Contribution Guidelines](#contribution-guidelines)
+9. [Feedback](#feedback)
 
 ## Description
 
