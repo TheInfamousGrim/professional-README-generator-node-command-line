@@ -2,7 +2,9 @@ function generateMarkdown(userResponses, gitHubAvatar, gitHubUserUrl, licenseSpd
     const draftMarkdown = `
 # ${userResponses.title}
 
-![Last Commit to Current Repo](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo}) ![License: ${licenseSpdxID}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
+![License: ${licenseSpdxID}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
+![Last Commit to Current Repo](https://img.shields.io/github/last-commit/${userResponses.username}/${userResponses.repo})
+![Commits a month](https://img.shields.io/github/commit-activity/m/${userResponses.username}/${userResponses.repo})
 
 ${userResponses.about}
 
@@ -71,9 +73,9 @@ ${userResponses.credits}
 
 ![License: ${licenseSpdxID}](https://img.shields.io/github/license/${userResponses.username}/${userResponses.repo}?color=yellow)
 
-[${licenseName}](/LICENSE.md)
+[${licenseName}](/LICENSE)
 
-## questions
+## Questions
 
 ![Ask Me Anything](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)
 

@@ -9,7 +9,6 @@ const getLicense = async (licenseSpdxID) => {
         const licenseData = {
             spdx_id: resp.data.spdx_id,
             name: resp.data.name,
-            body: resp.data.body,
         };
         return licenseData;
     } catch (error) {
