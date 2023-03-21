@@ -114,19 +114,19 @@ packages:
 
 ## Contribution Guidelines
 
-I'm open to have anyone jump in and contribute just message me on [twitter](https://twitter.com/VaporWhy)
+I'm open to have anyone jump in and contribute just message me on [twitter](https://twitter.com/GrimFunk69)
 
 [Guidelines for contributing](/code_of_conduct.md)
 
 ## Feedback
 
 ![Ask Me Anything](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:finchergeorge1@gmail.com)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:george@grimfunky.dev)
 
 <img src="https://avatars.githubusercontent.com/u/89855075?v=4" alt="TheInfamousGrim">
 
-Any feedback please email [George Fincher](mailto:finchergeorge1@gmail.com)
+Any feedback please email [George Fincher](mailto:george@grimfunky.dev)
 
-GitHub: [TheInfamousGrim](https://api.github.com/users/TheInfamousGrim)
+GitHub: [TheInfamousGrim](https://github.com/TheInfamousGrim)
 
-Twitter: [GrimFunk](https://twitter.com/VaporWhy)
+Twitter: [GrimFunk](https://twitter.com/GrimFunk69)
